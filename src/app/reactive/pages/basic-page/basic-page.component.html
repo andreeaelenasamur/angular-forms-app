@@ -16,10 +16,14 @@
                            class="form-control"
                            placeholder="Nombre del producto">
 
-                    <span class="form-text text-danger">
-                        <!-- Debe de ser de 3 letras -->
-                        error message
+                    <span class="form-text text-danger" *ngIf="myForm.controls['name'].getError('required') && myForm.controls['name'].touched">
+                        Este campo es requerido
                     </span>
+
+                    <span class="form-text text-danger" *ngIf="myForm.controls['name'].getError('minlength') && myForm.controls['name'].touched">
+                      <!-- Debe de ser de 3 letras -->
+                      Este campo requiere mínimo 3 letras
+                  </span>
                 </div>
             </div>
 
